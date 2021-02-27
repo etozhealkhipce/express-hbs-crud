@@ -19,8 +19,23 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
+      {{#if isHome}}
+      <a href="/" class="navbar-item is-active"> Main </a>
+      {{else}}
       <a href="/" class="navbar-item"> Main </a>
-      <a href="/about" class="navbar-item"> About </a>
+      {{/if}}
+
+      {{#if isAll}}
+      <a href="/all" class="navbar-item is-active"> Courses </a>
+      {{else}}
+      <a href="/all" class="navbar-item"> Courses </a>
+      {{/if}}
+
+      {{#if isAdd}}
+      <a href="/add" class="navbar-item is-active"> Add course </a>
+      {{else}}
+      <a href="/add" class="navbar-item"> Add course </a>
+      {{/if}}
     </div>
   </div>
 </nav>

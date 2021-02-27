@@ -3,8 +3,6 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error'],
-    rules: {
-      'comma-dangle': ['error', 'never']
-    }
+    'comma-dangle': ['error', 'never']
   }
-};
+}
