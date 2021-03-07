@@ -1,6 +1,9 @@
 const express = require('express')
 // const path = require('path')
 const exphbs = require('express-handlebars')
+const homeRoutes = require('./routes/home')
+const allRoutes = require('./routes/all')
+const addRoutes = require('./routes/add')
 
 const app = express()
 
@@ -12,32 +15,11 @@ const hbs = exphbs.create({
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views') // default
+app.use(express.urlencoded({ extended: true }))
 app.use('/public', express.static(`${__dirname}/public`))
-
-app.get('/', (req, res) => {
-  res.status(200)
-  // res.sendFile(path.join(__dirname, 'views', 'index'))
-  res.render('index', {
-    title: 'Main page',
-    isHome: true
-  })
-})
-
-app.get('/all', (req, res) => {
-  res.status(200)
-  res.render('all', {
-    title: 'All books',
-    isAll: true
-  })
-})
-
-app.get('/add', (req, res) => {
-  res.status(200)
-  res.render('add', {
-    title: 'Add book',
-    isAdd: true
-  })
-})
+app.use('/', homeRoutes)
+app.use('/all', allRoutes)
+app.use('/add', addRoutes)
 
 const PORT = process.env.PORT || 3000
 
