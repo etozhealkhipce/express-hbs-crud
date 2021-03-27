@@ -7,4 +7,41 @@
     suscipit voluptate neque eius, accusantium veritatis expedita, voluptatem quasi qui delectus
     minima reiciendis officia obcaecati corporis.
   </h2>
+  <div class="columns is-multiline">
+    {{#if books.length}}
+    {{#each books}}
+    <div class="column is-3">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{{ image }}" alt="Placeholder image" />
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{ title }}</p>
+              <p class="subtitle is-6 price">{{ price }}</p>
+            </div>
+          </div>
+
+          <div class="content">
+            {{ description }}
+
+            <br />
+            <br />
+            <a href="/all/{{ id }}" target="_blank" class="button is-light is-fullwidth">
+              More info
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="column is-full">
+      <p class="subtitle has-text-centered">Books not found!</p>
+    </div>
+    {{/if}}
+  </div>
 </section>
