@@ -58,6 +58,27 @@ class Book {
 
     return books.find((book) => book.id === id)
   }
+
+  static async update(book) {
+    const books = await Book.getAll()
+
+    const idx = books.findIndex((b) => b.id === book.id)
+    books[idx] = book
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(
+        path.join(__dirname, '..', 'data', 'books.json'),
+        JSON.stringify(books),
+        (err) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve()
+          }
+        }
+      )
+    })
+  }
 }
 
 module.exports = Book

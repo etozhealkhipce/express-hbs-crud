@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars')
 const homeRoutes = require('./routes/home')
 const allRoutes = require('./routes/all')
 const addRoutes = require('./routes/add')
+const cartRoutes = require('./routes/cart')
 
 const app = express()
 
@@ -20,6 +21,7 @@ app.use('/public', express.static(`${__dirname}/public`))
 app.use('/', homeRoutes)
 app.use('/all', allRoutes)
 app.use('/add', addRoutes)
+app.use('/cart', cartRoutes)
 
 const PORT = process.env.PORT || 3000
 

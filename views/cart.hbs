@@ -1,0 +1,37 @@
+<section class="section">
+  <div class="columns is-multiline" id="cart">
+    <div class="column is-12">
+      {{#if books.length}}
+      <table class="table is-bordered is-fullwidth">
+        <thead>
+          <tr>
+            <th><abbr title="Title">Title</abbr></th>
+            <th><abbr title="Price">Price</abbr></th>
+            <th><abbr title="Price">Count</abbr></th>
+            <th><abbr title="Remove">Actions</abbr></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {{#each books}}
+            <tr>
+              <td class="is-centered">{{ title }}</td>
+              <td>{{ price }}</td>
+              <td>{{ count }}</td>
+              <td>
+                <button type="submit" class="button is-text is-danger remove" data-id="{{id}}">Remove</button>
+              </td>
+            </tr>
+            {{/each}}
+          </tr?>
+        </tbody>
+      </table>
+      <h2 class="title is-3">
+        Price: <span class="price">{{ price }}</span>
+      </h2>
+      {{else}}
+      <h1 class="title text-is-centered">Cart empty</h1>
+      {{/if}}
+    </div>
+  </div>
+</section>

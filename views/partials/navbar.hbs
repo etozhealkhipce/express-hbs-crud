@@ -26,15 +26,21 @@
       {{/if}}
 
       {{#if isAll}}
-      <a href="/all" class="navbar-item is-active"> Courses </a>
+      <a href="/all" class="navbar-item is-active"> Books </a>
       {{else}}
-      <a href="/all" class="navbar-item"> Courses </a>
+      <a href="/all" class="navbar-item"> Books </a>
       {{/if}}
 
       {{#if isAdd}}
-      <a href="/add" class="navbar-item is-active"> Add course </a>
+      <a href="/add" class="navbar-item is-active"> Add book </a>
       {{else}}
-      <a href="/add" class="navbar-item"> Add course </a>
+      <a href="/add" class="navbar-item"> Add book </a>
+      {{/if}}
+
+      {{#if isCart}}
+      <a href="/cart" class="navbar-item is-active"> Cart </a>
+      {{else}}
+      <a href="/cart" class="navbar-item"> Cart </a>
       {{/if}}
     </div>
   </div>

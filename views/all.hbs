@@ -33,6 +33,15 @@
             <a href="/all/{{ id }}" target="_blank" class="button is-light is-fullwidth">
               More info
             </a>
+            <br />
+            <br />
+            <a href="/all/{{ id }}/edit?allow=true" class="button is-text is-fullwidth"> Edit </a>
+            <br />
+            <br />
+            <form action="/cart/add" method="POST">
+              <input type="hidden" name="id" value="{{ id }}" />
+              <button type="submit" class="button is-text is-fullwidth">Add to cart</button>
+            </form>
           </div>
         </div>
       </div>

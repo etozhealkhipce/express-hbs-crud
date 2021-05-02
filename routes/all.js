@@ -15,6 +15,19 @@ router.get('/', async (req, res) => {
   })
 })
 
+router.get('/:id/edit', async (req, res) => {
+  if (!req.query.allow) {
+    res.redirect('/')
+  }
+
+  const book = await Book.getById(req.params.id)
+
+  res.render('edit', {
+    title: `Редактировать ${book.title}`,
+    book
+  })
+})
+
 router.get('/:id', async (req, res) => {
   const book = await Book.getById(req.params.id)
   res.render('book', {
@@ -22,6 +35,12 @@ router.get('/:id', async (req, res) => {
     title: `Курс ${book.title}`,
     book
   })
+})
+
+router.post('/edit', async (req, res) => {
+  await Book.update(req.body)
+
+  res.redirect('/all')
 })
 
 module.exports = router
