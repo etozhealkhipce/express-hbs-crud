@@ -12,18 +12,18 @@
           </tr>
         </thead>
         <tbody>
+          {{#each books}}
           <tr>
-            {{#each books}}
-            <tr>
-              <td class="is-centered">{{ title }}</td>
-              <td>{{ price }}</td>
-              <td>{{ count }}</td>
-              <td>
-                <button type="submit" class="button is-text is-danger remove" data-id="{{id}}">Remove</button>
-              </td>
-            </tr>
-            {{/each}}
-          </tr?>
+            <td class="is-centered">{{ title }}</td>
+            <td>{{ price }}</td>
+            <td>{{ count }}</td>
+            <td>
+              <button type="submit" class="button is-text is-danger remove" data-id="{{ id }}">
+                Remove
+              </button>
+            </td>
+          </tr>
+          {{/each}}
         </tbody>
       </table>
       <h2 class="title is-3">
