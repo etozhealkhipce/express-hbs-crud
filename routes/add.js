@@ -13,11 +13,22 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { title, price, image, description } = req.body
-  const book = new Book(title, price, image, description)
-  await book.save()
+  try {
+    const { title, price, image, description } = req.body
 
-  res.redirect('/all')
+    const book = new Book({
+      title,
+      price,
+      image,
+      description
+    })
+
+    await book.save()
+
+    res.redirect('/all')
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 module.exports = router

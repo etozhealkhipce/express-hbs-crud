@@ -1,5 +1,6 @@
 const express = require('express')
 // const path = require('path')
+const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const homeRoutes = require('./routes/home')
 const allRoutes = require('./routes/all')
@@ -25,6 +26,19 @@ app.use('/cart', cartRoutes)
 
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, () => {
-  console.log('Server running')
-})
+const user = 'admin'
+const password = 'FOUzzxt4UBQkFaqU'
+const uri = `mongodb+srv://${user}:${password}@cluster0.0ueji.mongodb.net/shop`
+
+async function start() {
+  try {
+    await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    app.listen(PORT, () => {
+      console.log('Server running')
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+start()
